@@ -1,0 +1,5 @@
+username,email,password,firstname,lastname,role
+jon,jon@gmail.com,1234,Jon,Doe,subscriber
+abraham,abraham@proton.me,1587741,Abraham,Lincon,administrator
+herodotus,herodotus@history.me,1234,Herodotus,Mia,subscriber
+demo,demo@domain.com,1234,Demo,User,subscriber
