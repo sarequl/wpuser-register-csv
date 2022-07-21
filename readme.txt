@@ -29,8 +29,13 @@ e.g.
 
 1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). 
 
-icon-128x128.(png|jpg)
-icon-256x256.(png|jpg)
+screenshot-1.(png|jpg|jpeg|gif)
+screenshot-2.(png|jpg|jpeg|gif)
+screenshot-3.(png|jpg|jpeg|gif)
+screenshot-4.(png|jpg|jpeg|gif)
+
+plugin-icon.(png|jpg)
+banner.(png|jpg)
 
 == Changelog ==
 
