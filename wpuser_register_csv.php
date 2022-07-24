@@ -26,31 +26,40 @@ define( 'wpuser_register_csv', '1.0.0' );
 /**
  * The code that runs during plugin activation.
  */
-function activate_wpuser_register_csv() {
-	
+
+if(!function_exists('activate_wpuser_register_csv')){
+	function activate_wpuser_register_csv() {
+		
+	}
 }
 
 /**
  * The code that runs during plugin deactivation.
  */
-function deactivate_wpuser_register_csv() {
-	
+if(!function_exists('deactivate_wpuser_register_csv')){
+	function deactivate_wpuser_register_csv() {
+		
+	}
 }
 
-function wpuser_register_csv_action_links( $links,$plugin ) {
 
-	$plugin_path = plugin_dir_path(__FILE__);
+if(!function_exists('wpuser_register_csv_action_links')){
+	function wpuser_register_csv_action_links( $links,$plugin ) {
 
-	$new_link = array();
-	if(basename($plugin_path).'/wpuser_register_csv.php' == $plugin){
+		$plugin_path = plugin_dir_path(__FILE__);
 
-		$new_link['settings'] = '<a href="'. esc_url( get_admin_url( null, 'users.php?page=user_register_from_csv' ) ) .'">'. __( 'Settings', 'wpuser_register_csv' ) .'</a>';
+		$new_link = array();
+		if(basename($plugin_path).'/wpuser_register_csv.php' == $plugin){
+
+			$new_link['settings'] = '<a href="'. esc_url( get_admin_url( null, 'users.php?page=user_register_from_csv' ) ) .'">'. __( 'Settings', 'wpuser_register_csv' ) .'</a>';
+		}
+
+		return array_merge($new_link,$links);
 	}
 
-	return array_merge($new_link,$links);
+	add_filter('plugin_action_links', 'wpuser_register_csv_action_links', 10, 2);
 }
 
-add_filter('plugin_action_links', 'wpuser_register_csv_action_links', 10, 2);
 
 
 
