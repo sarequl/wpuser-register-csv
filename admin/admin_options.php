@@ -16,7 +16,7 @@ function wpuser_register_csv_settings_init(  ) {
 
 	add_settings_section(
 		'wpuser_register_csv_wpurc_sarequl_section', 
-		__( 'Your section description', 'wpurclang' ), 
+		__( 'Your section description', 'user-register-from-csv' ), 
 		'wpuser_register_csv_settings_section_callback', 
 		'wpurc_sarequl'
 	);
@@ -27,7 +27,7 @@ function wpuser_register_csv_settings_init(  ) {
 
 function wpuser_register_csv_settings_section_callback(  ) { 
 
-	echo __( 'User Register Dashboard', 'wpurclang' );
+	echo __( 'User Register Dashboard', 'user-register-from-csv' );
 
 }
 
@@ -53,7 +53,7 @@ function wpuser_register_csv_options_page(  ) {
 	<div class="wpurc-importer-area">
 		<h2>User Register From CSV - Options</h2>
 	<?php 
-			function wpurc_import_csv($csvfile){
+			function wpuser_register_csv_import_csv($csvfile){
 				$csv_users = array_map('str_getcsv', file($csvfile));
 				//return $csv_users;
 				
@@ -99,7 +99,7 @@ function wpuser_register_csv_options_page(  ) {
 					$user_id = wp_insert_user($user);
 
 					if(!is_wp_error($user_id)){
-						echo '<p>User <b>'.$user['user_login'].' </b> created successfully</p>';
+						echo '<p>User <b>'.esc_html($user['user_login']).' </b> created successfully</p>';
 					}
 				}
 				/**
@@ -108,11 +108,11 @@ function wpuser_register_csv_options_page(  ) {
 			}
 
 
-			if(isset($_POST['wpurc_csv_import_button'])){
+			if(isset($_POST['wpuser_register_csv_import_button'])){
 				$csv = $_FILES['csv_file']['tmp_name'];
 				if(!empty($csv)){
 					
-					wpurc_import_csv($csv);
+					wpuser_register_csv_import_csv($csv);
 					echo '<div class="alart alart-success">CSV Import Success!</div>';
 				}
 			}
@@ -124,7 +124,7 @@ function wpuser_register_csv_options_page(  ) {
 					<input type="file" class="ci-form-control" name="csv_file" id="">
 				</div>
 				<div class="csv_btn">
-					<input class="wpurc-btn button-primary" type="submit" name="wpurc_csv_import_button" value="Import"> 
+					<input class="wpurc-btn button-primary" type="submit" name="wpuser_register_csv_import_button" value="Import"> 
 				</div>
 
 			</form>
